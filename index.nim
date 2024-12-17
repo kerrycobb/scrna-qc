@@ -199,8 +199,8 @@ slide:
 - Tool facilitating the application of thresholds to clustered cells
 - Iteratively cluster cells and apply thresholds to each cluster
 - Requires UMIs
-
 """
+    fitImage("images/ddqc-umap.png")
   slide:
     nbText: """
 # Additional Resources
