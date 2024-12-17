@@ -233,6 +233,7 @@ slide:
 # Alternatives to proportion mtDNA
 - Celloline
 - Supervised machine learning using a large suite of features for identifying poor quality cells 
+- Not actively maintained
 """
   slide:
     nbText: """
