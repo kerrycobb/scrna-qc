@@ -212,7 +212,7 @@ slide:
 slide: 
   slide:
     nbText: """
-# Alternative to proportion mtDNA
+# Alternatives to proportion mtDNA
 - MALAT1
 - Intact cells have moderate to high levels MALAT1
 - Not consistent across cell types 
@@ -223,6 +223,23 @@ slide:
 # Additional Resources
 [MALAT1 expression indicates cell quality in single-cell RNA sequencing data - Clark & Bader 2024](https://doi.org/10.1101/2024.07.14.603469)
 """
+
+
+#################################################
+# Quality Control
+slide: 
+  slide:
+    nbText: """
+# Alternatives to proportion mtDNA
+- Celloline
+- Supervised machine learning using a large suite of features for identifying poor quality cells 
+"""
+  slide:
+    nbText: """
+# Additional Resources
+[Classification of low quality cells from single-cell RNA-seq data - Ilicic et al. 2016](https://doi.org/10.1186/s13059-016-0888-1)
+"""
+
 
 slide:
   slide:
