@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/serif.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/monokai.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    
+:root {
+--r-main-font-size: 36px;
+--r-heading1-size: 60px;
+--r-heading2-size: 56px;
+--r-heading3-size: 52px;
+--r-heading3-size: 48px;
+--r-heading3-size: 46px;
+}
+
+    </style>
+  </head>
+  <body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-nimib-slide-number="1" >
+      <p>Single Cell RNA Sequencing: Quality Control</p>
+      </section>
+      <section data-nimib-slide-number="2" >
+      <h2>What is single cell RNA sequencing?</h2>
+      <div style="text-align: left;">
+      <ul>
+<li>Which genes are transcribed in a single cell</li>
+<li>How much of a gene is transcribed in a single cell</li>
+</ul>
+      </div>
+      </section>
+      <section data-nimib-slide-number="3" >
+      <section data-nimib-slide-number="4" >
+      <h1>What scRNA can tell us?</h1>
+<ul>
+<li>Identify new cell types</li>
+<li>Investigate developmental trajectories</li>
+<li>Understand the basis of tumor progression</li>
+<li>Characterize immune cell types</li>
+<li>Piece together gene regulatory networks</li>
+<li>And more</li>
+</ul>
+      </section>
+      </section>
+      <section data-nimib-slide-number="5" >
+      <h1>How to obtain scRNA?</h1>
+      <div style="text-align: left;">
+      <ol>
+<li>Dissociate cells</li>
+<li>Isolate single cells</li>
+<li>Construct libraries from mRNA</li>
+<li>Sequence libraries</li>
+</ol>
+      </div>
+      </section>
+      <section data-nimib-slide-number="6" >
+      <h1>Dissociate Cells</h1>
+      <figure>
+<img src="images/dissociation.png" alt="">
+<figcaption></figcaption>
+</figure>
+      </section>
+      <section data-nimib-slide-number="7" >
+      <h1>Isolate Single Cells</h1>
+      <figure>
+<img src="images/scrna-capture.png" alt="">
+<figcaption></figcaption>
+</figure>
+      </section>
+      <section data-nimib-slide-number="8" >
+      <h1>Construct Libraries</h1>
+      <figure>
+<img src="images/scrna-barcode.png" alt="">
+<figcaption></figcaption>
+</figure>
+      </section>
+      <section data-nimib-slide-number="9" >
+      <h1>Sequence Libraries</h1>
+      <figure>
+<img src="images/sequencer.png" alt="">
+<figcaption></figcaption>
+</figure>
+      <figure>
+<img src="images/map.png" alt="">
+<figcaption></figcaption>
+</figure>
+      </section>
+      <section data-nimib-slide-number="10" >
+      <h1>How to obtain scRNA?</h1>
+      <div style="text-align: left;">
+      <ol>
+<li>Dissociate cells</li>
+<li>Isolate single cells</li>
+<li>Construct libraries from mRNA</li>
+<li>Sequence libraries</li>
+</ol>
+      </div>
+      </section>
+      <section data-nimib-slide-number="11" >
+      <h1>The Data</h1>
+      <figure>
+<img src="images/matrix.png" alt="">
+<figcaption></figcaption>
+</figure>
+      </section>
+      <section data-nimib-slide-number="12" >
+      <h1>Challenges</h1>
+<ul>
+<li>Data are very noisy</li>
+<li>Prone to technical artifacts</li>
+</ul>
+      </section>
+      <section data-nimib-slide-number="13" >
+      <h1>Quality Control</h1>
+      <div style="text-align: left;">
+      <h3>Three primary components:</h3>
+<ol>
+<li>Number of counts per putative cell
+<ul>
+<li>Reads</li>
+<li>Unique molecular identifiers (UMIs)</li>
+<li>In reality may represent 0 cells or more than 1</li>
+</ul>
+</li>
+<li>Number genes per putative cell</li>
+<li>Proportion of mitochondrial genes in putative cell</li>
+</ol>
+      </div>
+      </section>
+      <section data-nimib-slide-number="14" >
+      <h2>Why you <strong>should</strong> filter cells with high mtDNA expression?</h2>
+      <figure>
+<img src="images/apoptosis.png" alt="">
+<figcaption></figcaption>
+</figure>
+      </section>
+      <section data-nimib-slide-number="15" >
+      <h3>Why you <strong>should not</strong> filter cells with high mtDNA expression?</h3>
+      <div style="text-align: left;">
+      <div class="fragment fade-in" data-fragment-index="0" data-fragment-index-nimib="0"> 
+  
+      <h4>Cells can have high mtDNA expression for several other reasons:</h4>
+<ul>
+<li>Larger cells</li>
+<li>High metabolic rate
+<ul>
+<li>Kidneys, muscles</li>
+</ul>
+</li>
+<li>Malignant cells</li>
+</ul>
+      </div>
+  
+      </div>
+      </section>
+      <section data-nimib-slide-number="16" >
+      <h1>How to filter</h1>
+      <img data-src="images/fraction-mito-corr.png" class="r-stretch">
+      </section>
+      <section data-nimib-slide-number="17" >
+      <section data-nimib-slide-number="18" >
+      <h1>High Metabolic Activity</h1>
+      <img data-src="images/ddqc-umap.png" class="r-stretch">
+      </section>
+      <section data-nimib-slide-number="19" >
+      <h1>Additional Resources</h1>
+<p><a href="https://doi.org/10.1186/s13059-022-02820-w">Biology-inspired data-driven quality control for scientific discovery in single-cell transcriptomics - Subramanian et al. 2022</a></p>
+      </section>
+      </section>
+      <section data-nimib-slide-number="20" >
+      <section data-nimib-slide-number="21" >
+      <h1>Malignant Cells</h1>
+      <img data-src="images/yates.png" class="r-stretch">
+      </section>
+      <section data-nimib-slide-number="22" >
+      <h1>Additional Resources</h1>
+<p><a href="https://doi.org/10.1101/2024.10.24.620025">Filtering cells with high mitochondrial content removes viable metabolically altered malignant cell populations in cancer single-cell studies - Yates et al. 2022</a></p>
+      </section>
+      </section>
+      <section data-nimib-slide-number="23" >
+      <section data-nimib-slide-number="24" >
+      <h1>miQC</h1>
+      </section>
+      <section data-nimib-slide-number="25" >
+      <h1>Additional Resources</h1>
+<p><a href="https://doi.org/10.1371/journal.pcbi.1009290">miQC: An adaptive probabilistic framework for quality control of single-cell RNA-sequencing data - Hippen et al. 2022</a></p>
+      </section>
+      </section>
+      <section data-nimib-slide-number="26" >
+      <section data-nimib-slide-number="27" >
+      <h1>ddqc</h1>
+      </section>
+      <section data-nimib-slide-number="28" >
+      <h1>Additional Resources</h1>
+<p><a href="https://doi.org/10.1186/s13059-022-02820-w">Biology-inspired data-driven quality control for scientific discovery in single-cell transcriptomics - Subramanian et al. 2022</a></p>
+      </section>
+      </section>
+      <section data-nimib-slide-number="29" >
+      <section data-nimib-slide-number="30" >
+      <h1>Alternatives to proportion mtDNA</h1>
+<ul>
+<li>MALAT1</li>
+<li></li>
+</ul>
+      </section>
+      <section data-nimib-slide-number="31" >
+      <h1>Additional Resources</h1>
+<p><a href="https://doi.org/10.1186/s13059-022-02820-w">Biology-inspired data-driven quality control for scientific discovery in single-cell transcriptomics - Clark &amp; Bader 2024</a></p>
+      </section>
+      </section>
+      <section data-nimib-slide-number="32" >
+      <section data-nimib-slide-number="33" >
+      <h1>Recommendation</h1>
+<ul>
+<li>QC should be itereative</li>
+<li>Start small</li>
+<li><strong>Do not</strong> select thresholds because they improve outcomes of statistical tests
+<ul>
+<li>Thre must be some other justification</li>
+<li>But, beware the garden of forking paths</li>
+<li>Be transparent</li>
+</ul>
+</li>
+<li>Data driven approaches seem better than simple threshold based approaches</li>
+</ul>
+      </section>
+      <section data-nimib-slide-number="34" >
+      <p><a href="http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf">The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research
+hypothesis was posited ahead of time - Gelman &amp; Loken 2013</a></p>
+      </section>
+      </section>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/notes/notes.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    Reveal.initialize({
+      plugins: [ 
+        RevealHighlight,
+        RevealNotes,
+      ],
+      center: false,
+    });
+  </script>
+  </body>
+</html>
