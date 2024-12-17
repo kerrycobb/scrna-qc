@@ -2,7 +2,13 @@ import nimib, nimiSlides
 
 nbInit(theme = revealTheme)
 setSlidesTheme(Serif)
-disableVerticalCentering()
+
+
+# Title Slide
+slide:
+  bigText: "Single Cell RNA Sequence Data: Quality Control"
+
+# disableVerticalCentering()
 nb.addStyle: """
 :root {
 --r-main-font-size: 36px;
@@ -14,11 +20,6 @@ nb.addStyle: """
 }
 """
 
-
-slide:
-  nbText: "Single Cell RNA Sequencing: Quality Control"
-
-
 #################################################
 # What
 slide:
@@ -26,6 +27,7 @@ slide:
   # nbText: "# scRNA-seq"
   align("left"):
     nbText:"""
+- Associate mRNA with cell of origin
 - Which genes are transcribed in a single cell
 - How much of a gene is transcribed in a single cell
 """
@@ -176,7 +178,12 @@ slide:
 # Quality Control
 slide: 
   slide:
-    nbText: "# miQC"
+    nbText: """
+# miQC
+- Models cell quality base on counts and proportion of mtDNA
+- Estimates probabiliy for cell that can be used for filtering
+"""
+    fitImage("images/miqc.png")
   slide:
     nbText: """
 # Additional Resources
@@ -187,7 +194,13 @@ slide:
 # Quality Control
 slide: 
   slide:
-    nbText: "# ddqc"
+    nbText: """
+# ddqc
+- Tool facilitating the application of thresholds to clustered cells
+- Iteratively cluster cells and apply thresholds to each cluster
+- Requires UMIs
+
+"""
   slide:
     nbText: """
 # Additional Resources
@@ -199,34 +212,38 @@ slide:
 slide: 
   slide:
     nbText: """
-# Alternatives to proportion mtDNA
+# Alternative to proportion mtDNA
 - MALAT1
-- 
-
+- Intact cells have moderate to high levels MALAT1
+- Not consistent across cell types 
 """
+    fitImage("images/clark-bader.png")
   slide:
     nbText: """
 # Additional Resources
-[Biology-inspired data-driven quality control for scientific discovery in single-cell transcriptomics - Clark & Bader 2024](https://doi.org/10.1186/s13059-022-02820-w)
+[MALAT1 expression indicates cell quality in single-cell RNA sequencing data - Clark & Bader 2024](https://doi.org/10.1101/2024.07.14.603469)
 """
 
 slide:
   slide:
     nbText: """
-# Recommendation
-- QC should be itereative
-- Start small
+# Recommendations
+- QC should be iterative
+- Start with minimal filtering
 - **Do not** select thresholds because they improve outcomes of statistical tests
   - Thre must be some other justification
-  - But, beware the garden of forking paths
+  - Beware the garden of forking paths
   - Be transparent
-- Data driven approaches seem better than simple threshold based approaches
+- Data driven approaches seem better than simple threshold based approaches in many applications
+- Additional evidence beyond mtDNA can be helpful
 """
   slide:
     nbText: """
 [The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research
 hypothesis was posited ahead of time - Gelman & Loken 2013](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf)
 """
+
+
 
 
 nbSave()

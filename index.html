@@ -23,12 +23,13 @@
   <div class="reveal">
     <div class="slides">
       <section data-nimib-slide-number="1" >
-      <p>Single Cell RNA Sequencing: Quality Control</p>
+      <h2 class="r-fit-text"> <p>Single Cell RNA Sequence Data: Quality Control</p> </h2>
       </section>
       <section data-nimib-slide-number="2" >
       <h2>What is single cell RNA sequencing?</h2>
       <div style="text-align: left;">
       <ul>
+<li>Associate mRNA with cell of origin</li>
 <li>Which genes are transcribed in a single cell</li>
 <li>How much of a gene is transcribed in a single cell</li>
 </ul>
@@ -185,6 +186,11 @@
       <section data-nimib-slide-number="23" >
       <section data-nimib-slide-number="24" >
       <h1>miQC</h1>
+<ul>
+<li>Models cell quality base on counts and proportion of mtDNA</li>
+<li>Estimates probabiliy for cell that can be used for filtering</li>
+</ul>
+      <img data-src="images/miqc.png" class="r-stretch">
       </section>
       <section data-nimib-slide-number="25" >
       <h1>Additional Resources</h1>
@@ -194,6 +200,11 @@
       <section data-nimib-slide-number="26" >
       <section data-nimib-slide-number="27" >
       <h1>ddqc</h1>
+<ul>
+<li>Tool facilitating the application of thresholds to clustered cells</li>
+<li>Iteratively cluster cells and apply thresholds to each cluster</li>
+<li>Requires UMIs</li>
+</ul>
       </section>
       <section data-nimib-slide-number="28" >
       <h1>Additional Resources</h1>
@@ -202,31 +213,34 @@
       </section>
       <section data-nimib-slide-number="29" >
       <section data-nimib-slide-number="30" >
-      <h1>Alternatives to proportion mtDNA</h1>
+      <h1>Alternative to proportion mtDNA</h1>
 <ul>
 <li>MALAT1</li>
-<li></li>
+<li>Intact cells have moderate to high levels MALAT1</li>
+<li>Not consistent across cell types</li>
 </ul>
+      <img data-src="images/clark-bader.png" class="r-stretch">
       </section>
       <section data-nimib-slide-number="31" >
       <h1>Additional Resources</h1>
-<p><a href="https://doi.org/10.1186/s13059-022-02820-w">Biology-inspired data-driven quality control for scientific discovery in single-cell transcriptomics - Clark &amp; Bader 2024</a></p>
+<p><a href="https://doi.org/10.1101/2024.07.14.603469">MALAT1 expression indicates cell quality in single-cell RNA sequencing data - Clark &amp; Bader 2024</a></p>
       </section>
       </section>
       <section data-nimib-slide-number="32" >
       <section data-nimib-slide-number="33" >
-      <h1>Recommendation</h1>
+      <h1>Recommendations</h1>
 <ul>
-<li>QC should be itereative</li>
-<li>Start small</li>
+<li>QC should be iterative</li>
+<li>Start with minimal filtering</li>
 <li><strong>Do not</strong> select thresholds because they improve outcomes of statistical tests
 <ul>
 <li>Thre must be some other justification</li>
-<li>But, beware the garden of forking paths</li>
+<li>Beware the garden of forking paths</li>
 <li>Be transparent</li>
 </ul>
 </li>
-<li>Data driven approaches seem better than simple threshold based approaches</li>
+<li>Data driven approaches seem better than simple threshold based approaches in many applications</li>
+<li>Additional evidence beyond mtDNA can be helpful</li>
 </ul>
       </section>
       <section data-nimib-slide-number="34" >
@@ -245,7 +259,6 @@ hypothesis was posited ahead of time - Gelman &amp; Loken 2013</a></p>
         RevealHighlight,
         RevealNotes,
       ],
-      center: false,
     });
   </script>
   </body>
